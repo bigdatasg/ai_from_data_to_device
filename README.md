@@ -11,28 +11,28 @@ This workshop aims to give BDX community an opportunity to learn and explore the
 
 **Duration**: 60 minutes
 
-[Data Prep with tf.data](https://github.com/bigdatasg/ai_from_data_to_device/edit/master/README.md)
+[Data Prep with tf.data](/module01_data_prep.md)
 
-### Module 2: Modelling with Tensorflow 2.0
+### Module 2: Modeling with Tensorflow 2.0
 
 **Duration**: 60 minutes
 
-[Modelling with Tensorflow 2.0](https://github.com/bigdatasg/ai_from_data_to_device/edit/master/README.md)
+[Modeling with Tensorflow 2.0](/module02_modeling.md)
 
 ### Module 3: Model Deployment with IoT
 
 **Duration**: 60 minutes
 
-[Model Deployment with IoT](https://github.com/bigdatasg/ai_from_data_to_device/edit/master/README.md)
+[Model Deployment with IoT](/module03_iot.md)
 
 ### Module 4: Model Deployment with Tensowflow.js on PWA
 
 **Duration**: 60 minutes
 
-[Model Deployment with Tensowflow.js on PWA](https://github.com/bigdatasg/ai_from_data_to_device/edit/master/README.md)
+[Model Deployment with Tensowflow.js on PWA](/module04_tfjs.md)
 
 ### Module 5: Model Deployment with TF Lite (Using Kotlin for Android)
 
 **Duration**: 60 minutes
 
-[Model Deployment with TF Lite (Using Kotlin for Android)](https://github.com/bigdatasg/ai_from_data_to_device/edit/master/README.md)
+[Model Deployment with TF Lite (Using Kotlin for Android)](/module05_android.md)
