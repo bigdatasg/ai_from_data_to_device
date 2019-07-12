@@ -2,7 +2,7 @@
 ## Overview
 In the previous module, you have seen the power of tf.data APIs in TensorFlow 2.0 reading complex data types from any storage. 
 
-In this module, you will see an example of data ETL from raw images to input into tensors, then apply transfer learning (which is how a lot of future models for end-users will be built at companies) to build an emotion classification model. We chose this use case so that at deployment in the next module, you can see the inference of your own facial expressions. Enjoy!
+In this module, you will see an example of data ETL from raw images to input into tensors, then apply transfer learning (which is how a lot of future models for end-users will be built at companies) to build an emotion classification model. We initially chose this use case so that at deployment in the next module, you can see the inference of your own facial expressions. However, there was some TF 2.0 compatibility issues that we have yet able to fix at deployment, but follows us to get the latest updates post workshop after we're able to fix the issues.
 
 The work is adapted from the following [tutorial](https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/r2/tutorials/images/transfer_learning.ipynb).
 
