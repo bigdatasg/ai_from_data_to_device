@@ -147,6 +147,11 @@ How fast is it compared to the inception model?
 Press ctrl+c in the terminal to end the live classification.    
 How many FPS did you get?      
 
+4. Reset the SenseHat
+```
+python3 clear_sensehat.py
+```
+
 ## Task 06: Use pre-trained object detection model
 1. Run the following:
 ```
