@@ -11,9 +11,9 @@ In this lab, you will learn to:
 1. Examine and understand the data (not exhaustive)
 2. Build an example input pipeline (there are many ways to build an input pipeline)
 3. Compose your model:
-  - Choose a suitable pre-train model
-  - Choose the sub-model you will depend on to build your model
-  - Append the suitable classification layers at the end
+    * Choose a suitable pre-train model
+    * Choose the sub-model you will depend on to build your model
+    * Append the suitable classification layers at the end
 4. Train your model
 5. Evaluate your model
 6. Tune and/or update the architecture of your model
