@@ -1,13 +1,12 @@
 # Module 3: Model Deployment with IoT
 ## Overview
-This module walks through a process in deploying and using a machine learning model inside an IoT prototype board (i.e. Raspberry Pi).
+This module walks through a process in deploying and using a machine learning model inside an IoT prototype board (i.e. Raspberry Pi with Coral Accelerator).
 
 ## What you'll learn
 In this lab, you will learn how to do the following:
-- Prepare the model so it can be used inside IoT prototype board (i.e. Raspberry Pi).
-- Consuming the model using tflite format
+- Prepare the model so it can be used inside an IoT prototype board (i.e. Raspberry Pi).
 - Converting to and using an Edge TPU model 
-- Integrating with Camera and SenseHat
+- Integrating with Camera
 
 ## Prerequisites
 
@@ -20,7 +19,7 @@ In this lab, you will learn how to do the following:
 
 ## Task 01: Prepare Workspace
 Note: This assumes you have now access to the prepared raspberry pi setup.
-1. Open the terminal
+1. Open the terminal    
 ![](assets/pi_terminal.png)
 2. Create a temporary workspace by executing the following in the terminal:
 ```
@@ -35,7 +34,7 @@ cd /home/pi/edgeiot_workspace/ai_from_data_to_device/coral_workshop
 ```
 
 ## Task 02: Compile Tensorflow Lite models for the Edge TPU
-1. Open PI's web browser and navigate to the following address:
+1. Use the web browser and navigate to the following address:
 ```
 https://coral.withgoogle.com/web-compiler/
 ```
@@ -44,8 +43,7 @@ https://coral.withgoogle.com/web-compiler/
 test_data/mobilenet_v1_0.25_128_quant.tflite
 test_data/inception_v4_299_quant.tflite
 ```
-Download the compiled models.    
-Close the web browser.    
+Download the compiled models. 
 
 3. Move the downloaded files to the following folder:
 ```
@@ -74,9 +72,11 @@ python3 classify_image.py --model test_data/inception_v4_299_quant_*_edgetpu.tfl
 1. Download dataset by running the following:
 ```
 DEMO_DIR=/tmp
-
+```
+```
 wget -P ${DEMO_DIR} http://download.tensorflow.org/example_images/flower_photos.tgz
-
+```
+```
 tar zxf ${DEMO_DIR}/flower_photos.tgz -C ${DEMO_DIR}
 ```
 2. Download an embedding extractor:
@@ -85,18 +85,23 @@ wget -P ${DEMO_DIR} https://dl.google.com/coral/canned_models/mobilenet_v1_1.0_2
 ```
 3. Start on-device transfer learning
 ```
-python3 classification_transfer_learning.py \
---extractor ${DEMO_DIR}/mobilenet_v1_1.0_224_quant_embedding_extractor_edgetpu.tflite \
---data ${DEMO_DIR}/flower_photos \
---output ${DEMO_DIR}/flower_model.tflite \
---test_ratio 0.95
+python3 classification_transfer_learning.py --extractor ${DEMO_DIR}/mobilenet_v1_1.0_224_quant_embedding_extractor_edgetpu.tflite --data ${DEMO_DIR}/flower_photos --output ${DEMO_DIR}/flower_model.tflite --test_ratio 0.95
+```
+
+4. Verify the transfer-learned model works by running it through the classify_image.py script.
+```
+# Download a rose image from Open Images:
+wget -O ${DEMO_DIR}/rose.jpg https://c2.staticflickr.com/4/3062/3067374593_f2963e50b7_o.jpg
+```
+```
+python3 classify_image.py --model ${DEMO_DIR}/flower_model.tflite --label ${DEMO_DIR}/flower_model.txt --image  ${DEMO_DIR}/rose.jpg
 ```
 
 ## Task 05: Use pre-trained object detection model
 1. Ensure that webcam is connected to the raspberry pi
 2. Run the following:
 ```
- python3 coral_live_object_detection.py --model test_data/mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite --label test_data/imagenet_labels.txt
+python3 coral_live_object_detection.py --model test_data/mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite --label test_data/imagenet_labels.txt
 ```
 3. Show the camera some objects to identify
 4. Once done, press ctrl+c to end the live detection.
