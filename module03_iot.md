@@ -129,7 +129,7 @@ Score :  0.1953125
 1. Ensure that webcam is connected to the raspberry pi
 2. Run the following (using inception):
 ```
-python3 coral_live_object_detection.py --model test_data/inception_v4_299_quant_*_edgetpu.tflite --label test_data/imagenet_labels.txt
+python3 coral_live_image_classification.py --model test_data/inception_v4_299_quant_*_edgetpu.tflite --label test_data/imagenet_labels.txt
 ```
 Show some objects to the camera.    
 The SenseHat on the Pi will display 'D' if it detects something. Otherwise, it will display 'X'.    
@@ -140,7 +140,7 @@ How many FPS did you get?
 
 3. Run the following (using mobilenet):
 ```
-python3 coral_live_object_detection.py --model test_data/mobilenet_v1_0.25_128_quant_*_edgetpu.tflite --label test_data/imagenet_labels.txt
+python3 coral_live_image_classification_sensehat.py --model test_data/mobilenet_v1_0.25_128_quant_*_edgetpu.tflite --label test_data/imagenet_labels.txt
 ```
 Show some objects to the camera.  
 How fast is it compared to the inception model?    
@@ -155,7 +155,7 @@ python3 clear_sensehat.py
 ## Task 06: Use pre-trained object detection model
 1. Run the following:
 ```
-python3 coral_live_image_classification_sensehat.py --model test_data/mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite --label test_data/imagenet_labels.txt
+python3 coral_live_object_detection.py --model test_data/mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite --label test_data/imagenet_labels.txt
 ```
 2. Show the camera some objects to identify
 3. Once done, press ctrl+c in the terminal to end the live detection.
