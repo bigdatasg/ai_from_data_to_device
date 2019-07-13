@@ -21,9 +21,9 @@ In this lab, you will learn to:
 ## Prerequisites
 
 ### Skills
-- Intermediate Python: able to manipulate lists, dictionaries
-- Basic proficiency in Python and Jupyter
-- High level understanding of TensorFlow APIs
+- Python: able to manipulate lists, dictionaries, understand maps
+- Proficiency with Jupyter
+- High level understanding of TensorFlow APIs will be good
 - Basic Machine Learning/Deep Learning theoretical understanding
 - Basic statistical understanding of model metrics and how to compute them
 
@@ -33,9 +33,9 @@ This setup is prepared for GCP resouces, and with no change, it could also be ru
 - Google Colab (you might need to check on dependencies for MS Azure Notebook and so on)
 - Local Python notebook 
 
-## Task 01: Examine your model performance
-1. Check the distribution of labels. Do you find any skewedness?
-2. Try predicting on a coloured image.
-...
+## Task 01: Transfer learning
+Extract the embeddings learned by [MobileNetV2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html) pre-trained on [ImageNet](http://www.image-net.org/). You simply add a new classifier, which will be trained from scratch, on top of the pre-trained model so that you can repurpose the model for our dataset. For this workshop, we will be learning emotion classes with this [dataset](https://www.kaggle.com/aspiring1/fer2013-images).
 
+## Task 02: Fine tuning
+Unfreezing a few of the top layers of a frozen model base and jointly training both the newly-added classifier layers and the last layers of the base model. This allows us to "fine tune" the higher-order feature representations in the base model in order to make them more relevant for the specific task.
 
