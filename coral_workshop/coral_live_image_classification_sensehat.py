@@ -13,6 +13,7 @@ from imutils.video import VideoStream
 
 from sense_hat import SenseHat
 sense = SenseHat()
+sense.rotation = 180
 
 def ReadLabelFile(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
