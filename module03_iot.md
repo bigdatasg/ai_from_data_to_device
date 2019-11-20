@@ -42,16 +42,15 @@ The following illustrates the basic process to create a model that's compatible 
 ls test_data/*quant.tflite
 ```
 
-2. Open the web compiler (https://coral.withgoogle.com/web-compiler/) in the browser and upload the following tensorflow lite model files. Compile them 1 at a time. Follow the steps on the site on how to upload.
+2. There used to be a web compiler where one can upload the following tensorflow lite model files. This is not available anymore. Moving forwards, one needs to use the [edgetpu compiler](https://coral.withgoogle.com/docs/edgetpu/compiler/) to do this task. In this workshop, we'll skip the installation and usage of this compiler. Instead, the compiled models will be provided for you.
 ```
 test_data/mobilenet_v1_0.25_128_quant.tflite
 test_data/inception_v4_299_quant.tflite
 ```
-Download the compiled models. 
 
-3. Move the downloaded files to the following folder:
+3. Run the following to copy over the compiled models
 ```
-/home/pi/edgeiot_workspace/ai_from_data_to_device/coral_workshop/test_data
+cp /home/pi/edgeiot_workspace/ai_from_data_to_device/coral_workshop/test_data/backup/* /home/pi/edgeiot_workspace/ai_from_data_to_device/coral_workshop/test_data/
 ```
 4. You should see 2 edgetpu model files when you run the following command
 ```
@@ -89,7 +88,7 @@ Notice how the models vary in terms of Model size, Accuracy, and performance.
 DEMO_DIR=/tmp
 ```
 ```
-wget -P ${DEMO_DIR} http://download.tensorflow.org/example_images/flower_photos.tgz
+test -f ${DEMO_DIR}/flower_photos.tgz || wget -P ${DEMO_DIR} http://download.tensorflow.org/example_images/flower_photos.tgz
 ```
 ```
 tar zxf ${DEMO_DIR}/flower_photos.tgz -C ${DEMO_DIR}
